@@ -146,28 +146,46 @@ namespace Monster_Players.Utilities
 
 			while (player1Life > 0 && player2Life > 0)
 			{
-				// epithesi prwtou pehti 
-				int damage1 = ChoiceOfDamage();
-				Console.WriteLine($"O {first.GetTitle()} ekane {damage1}");
-				player2Life -= damage1;
-				Console.WriteLine($"{second.GetTitle()} life: {Math.Max(player2Life, 0)}\n ");
-
-				if (player2Life <= 0) 
+				//roll gia na htipisei	
+				if (!IsHit(second))
 				{
-					break;
+					Console.WriteLine($"astohises {first.GetTitle()}");
 				}
 
-				//epithesi deuterou pehti
-				int damage2 = ChoiceOfDamage();
-				Console.WriteLine($"{second.GetTitle()} ekane {damage2}");
-				player1Life -= damage2;
-				Console.WriteLine($"{first.GetTitle()} life :{Math.Max(player1Life, 0)}\n ");
-
-				if(player1Life <= 0)
+				else
 				{
-					break;
+
+					// epithesi prwtou pehti 
+					int damage1 = ChoiceOfDamage();
+					Console.WriteLine($"O {first.GetTitle()} ekane {damage1}");
+					player2Life -= damage1;
+					Console.WriteLine($"{second.GetTitle()} life: {Math.Max(player2Life, 0)}\n ");
+
+					if (player2Life <= 0)
+					{
+						break;
+					}
+				}
+				// roll gia na htipisei 
+				if (!IsHit(first))
+				{
+					Console.WriteLine($"astohises {second.GetTitle()} ");
+				}
+				else
+				{
+					//epithesi deuterou pehti
+					int damage2 = ChoiceOfDamage();
+					Console.WriteLine($"{second.GetTitle()} ekane {damage2}");
+					player1Life -= damage2;
+					Console.WriteLine($"{first.GetTitle()} life :{Math.Max(player1Life, 0)}\n ");
+
+					if (player1Life <= 0)
+					{
+						break;
+					}
 				}
 			} 
+
 
 			// nikitis
 			if (player1Life > 0)
@@ -188,7 +206,7 @@ namespace Monster_Players.Utilities
 			return System.Enum.IsDefined(typeof(DiceEnum), value);	
 		}
 
-
+		// function pou dihnei ti zari hrisimopoiei o paihtis kai mas epistrefei to hit
 		public static int ChoiceOfDamage()
 		{
 			//swsth eisagwgh
@@ -204,6 +222,27 @@ namespace Monster_Players.Utilities
 			// ftiahnoyme to zari simfona me to ti mas edwse o hristis
 			AbstractDice damagezari = DiceFactory.GetInstance().CreateDice((DiceEnum) value);
 			return  damagezari.Roll();
+		}
+
+		// function pou dihnei ama pernaei to AC tou pehti wste na htipisei
+		public static bool IsHit(AbstractHeroes_Monsters player)
+		{
+			AbstractDice eikosapleuro = DiceFactory.GetInstance().CreateDice(DiceEnum.eikosapleuro);
+
+			Console.WriteLine("rixe gia na doume ean htipas press enter kai tha ginei roll 20 pleuro");
+			Console.ReadLine();
+			int hit = eikosapleuro.Roll();
+
+			if (hit >= player.GetArmorClass())
+			{
+				Console.WriteLine("hitares!!!");
+				Console.WriteLine("\n");
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 	}
