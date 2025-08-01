@@ -1,0 +1,14 @@
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\bin\Debug\net7.0\Monster&Players.exe
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\bin\Debug\net7.0\Monster&Players.deps.json
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\bin\Debug\net7.0\Monster&Players.runtimeconfig.json
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\bin\Debug\net7.0\Monster&Players.dll
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\bin\Debug\net7.0\Monster&Players.pdb
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.AssemblyInfoInputs.cache
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.AssemblyInfo.cs
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.csproj.CoreCompileInputs.cache
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.dll
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\refint\Monster&Players.dll
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.pdb
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\Monster&Players.genruntimeconfig.cache
+C:\Users\johnp\source\repos\Monster&Players\Monster&Players\obj\Debug\net7.0\ref\Monster&Players.dll
