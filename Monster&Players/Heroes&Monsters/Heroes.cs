@@ -12,8 +12,8 @@ namespace Monster_Players.Heroes_Monsters
 	{
 		private readonly string title = "Heroe";
 
-		public Heroes(string name, int hitPoints, int armorClass)
-		: base(name, hitPoints, armorClass)
+		public Heroes(string name, int hitPoints, int armorClass, int iniviative)
+		: base(name, hitPoints, armorClass, iniviative)
 		{
 		}
 
@@ -24,7 +24,7 @@ namespace Monster_Players.Heroes_Monsters
 
 		public override void ShowMore()
 		{
-			Console.WriteLine($"{name} --> HP : {hitPoints} kai armor {armorClass}");
+			Console.WriteLine($"{name} --> HP : {hitPoints} kai armor {armorClass} kai to initiative einai {initiative}");
 		}
 
 	}

@@ -12,7 +12,18 @@ namespace Monster_Players.Heroes_Monsters
 		protected int hitPoints { set; get; }
 		protected int armorClass { set; get; }
 		protected string name { set; get; }
+		protected int initiative { set; get; }
 
+
+		public int GetInitiative()
+		{
+			return initiative;
+		}
+
+		public void SetInitiative()
+		{
+			this.initiative = initiative;
+		}
 		public string GetName()
 		{
 			return name;
@@ -44,11 +55,12 @@ namespace Monster_Players.Heroes_Monsters
 
 
 
-		public AbstractHeroes_Monsters(string name, int hitpoints, int ArmorClass)
+		public AbstractHeroes_Monsters(string name, int hitpoints, int ArmorClass, int iniviative)
 		{
 		this.name = name;
 		this.hitPoints = hitpoints;
 		this.armorClass = ArmorClass;
+		this.initiative = iniviative;
 		}
 
 		public abstract string GetTitle();

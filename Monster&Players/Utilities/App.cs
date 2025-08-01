@@ -17,8 +17,8 @@ namespace Monster_Players.Utilities
 	    // klasi run i opoia einai void kai tha xekinaei to programma apo edw 
 		public static void Run() {
 
-			AbstractHeroes_Monsters a = CreateCharacter();
-			AbstractHeroes_Monsters b = CreateCharacter();
+			AbstractHeroes_Monsters a = CreatePlayer();
+			AbstractHeroes_Monsters b = CreatePlayer();
 
 			AbstractHeroes_Monsters first = TheTurn(a,b);
 			AbstractHeroes_Monsters second = (first == a) ? b : a;
@@ -28,73 +28,6 @@ namespace Monster_Players.Utilities
 
 			a.ShowMore();
 			b.ShowMore();
-
-		}
-
-		public static AbstractHeroes_Monsters CreateCharacter()
-		{
-			//var factory = FactoryHeroesMonsters.GetInstance();
-			int userChoice = 0;
-			int hitPoints = 0;
-			int armorClass = 0;
-			bool flag = true;
-
-			// xekinima ma epalitheusi gia lathos wste na mou ftiaxei to katalilo adikimeno
-			do
-			{
-				Console.WriteLine("dwse typo pehti 1 gia heroes 2 gia monster");
-				string input = Console.ReadLine();
-				if (!int.TryParse(input, out userChoice) || (userChoice != 1 && userChoice != 2))
-				{
-					Console.WriteLine("edwse lathos file prospathise pali");
-					continue;
-				}
-				
-				
-			} while ((userChoice != 1) && (userChoice != 2));
-
-			// elenhos me enum gia na doume pio adikimeno tha hrisimopoisisoume
-			Heroes_Monsters_Enum heroes_Monsters_Enum = (Heroes_Monsters_Enum) userChoice;
-
-			// onoma paihti 
-			Console.WriteLine("dwse onoma tou paihti");
-			string name = Console.ReadLine();
-
-			// hit points me elenho wste na min boun gramata
-			do
-			{
-				Console.WriteLine("dwse hit points");
-				string userinput = Console.ReadLine();
-				if (!int.TryParse(userinput, out hitPoints))
-				{
-					Console.WriteLine("dwse noumero parakalw : ");
-					continue;
-				}
-				else
-				{
-					flag = false;
-				}
-			} while (flag != false);
-
-			// armor class me elenho wste na min boun gramata
-			do
-			{
-				Console.WriteLine("dwse armorclass");
-				string userinput2 = Console.ReadLine();
-				if (!int.TryParse(userinput2, out armorClass))
-				{
-					Console.WriteLine("dwse noumero parkalw : ");
-					continue;
-				}
-				else
-				{
-					flag = false;
-				}
-			} while (flag != false);
-
-			// dimiourgia heroe i monster analoga tin epilogi
-
-			return FactoryHeroesMonsters.GetInstance().CreateHorM(heroes_Monsters_Enum, name, hitPoints, armorClass);
 
 		}
 
@@ -110,13 +43,13 @@ namespace Monster_Players.Utilities
 				// rihnei ο player1
 				Console.WriteLine("Player1, patise enter gia na rixeis ");
 				Console.ReadLine();
-				int roll1 = eikosapleuro.Roll();
+				int roll1 = eikosapleuro.Roll() + player1.GetInitiative();
 				Console.WriteLine($"eferes {roll1}");
 
 				// rihnei ο player2
 				Console.WriteLine("Player2, patise enter gia na rixeis ");
 				Console.ReadLine();
-				int roll2 = eikosapleuro.Roll();
+				int roll2 = eikosapleuro.Roll() + player2.GetInitiative();
 				Console.WriteLine($"Player2 efere {roll2}");
 
 				if (roll1 == roll2)
@@ -245,5 +178,59 @@ namespace Monster_Players.Utilities
 			}
 		}
 
+		// dimiourgia Heroe
+		public static Heroes CreateHero()
+		{
+			Console.WriteLine("dwse onoma heroe");
+			string name = Console.ReadLine();
+
+			int hitPoints = AskForInt("dwse hit points:");
+			int armorClass = AskForInt("dwse armor class:");
+			int initiative = AskForInt("dwse initiative:");
+
+			return new Heroes(name, hitPoints, armorClass, initiative);
+		}
+
+		// dimiourgia monster
+		public static Monsters CreateMonster()
+		{
+			Console.WriteLine("dwse onoma teratos:");
+			string name = Console.ReadLine();
+
+			int hitPoints = AskForInt("dwse hit points:");
+			int armorClass = AskForInt("dwse armor class:");
+			int initiative = AskForInt("dwse initiative:");
+
+			return new Monsters(name, hitPoints, armorClass, initiative);
+		}
+
+		// dimiourgia player
+		public static AbstractHeroes_Monsters CreatePlayer()
+		{
+			int choice;
+			do
+			{
+				Console.WriteLine("dwse typo : 1 gia Hero, 2 gia Monster");
+			}
+			while (!int.TryParse(Console.ReadLine(), out choice) || (choice != 1 && choice != 2));
+
+			if (choice == 1)
+				return CreateHero();
+			else
+				return CreateMonster();
+		}
+
+		// function na elenhei arithmos i ohi me minima
+		public static int AskForInt(string message)
+		{
+			int value;
+			while (true)
+			{
+				Console.WriteLine(message);
+				if (int.TryParse(Console.ReadLine(), out value))
+					return value;
+				Console.WriteLine("mi egiro dwse arithmo");
+			}
+		}
 	}
 }

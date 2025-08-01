@@ -25,18 +25,18 @@ namespace Monster_Players.Factory
 		}
 
 		// dimiourgia abstract klaseis me orisma enum name hitpoints kai armorclass gia na kanoume epilogi ti tha ftiaxei
-		public AbstractHeroes_Monsters CreateHorM (Heroes_Monsters_Enum heroes_Monsters_Enum, string name , int hitPoints, int armorClass)
+		public AbstractHeroes_Monsters CreateHorM (Heroes_Monsters_Enum heroes_Monsters_Enum, string name , int hitPoints, int armorClass, int iniviative)
 		{
 			switch(heroes_Monsters_Enum)
 			{
 				case Heroes_Monsters_Enum.heroes:
 				{
-					return new Heroes(name, hitPoints, armorClass);
+					return new Heroes(name, hitPoints, armorClass, iniviative);
 				}
 
 				case Heroes_Monsters_Enum.monster:
 				{
-					return new Monsters(name, hitPoints, armorClass);
+					return new Monsters(name, hitPoints, armorClass, iniviative);
 				}
 				default:
 				throw new ArgumentException("unkown character!!");

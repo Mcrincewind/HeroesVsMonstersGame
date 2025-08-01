@@ -10,8 +10,8 @@ namespace Monster_Players.Heroes_Monsters
 	public class Monsters:AbstractHeroes_Monsters
 	{
 		private readonly string title = "Monster";
-		public Monsters(string name, int hitPoints, int armorClass)
-		:base(name, hitPoints, armorClass)
+		public Monsters(string name, int hitPoints, int armorClass, int iniviative)
+		:base(name, hitPoints, armorClass, iniviative)
 		{
 		}
 		public override string GetTitle()
@@ -20,7 +20,7 @@ namespace Monster_Players.Heroes_Monsters
 		}
 		public override void ShowMore()
 		{
-			Console.WriteLine($"{name} --> HP : {hitPoints} kai armor {armorClass}");
+			Console.WriteLine($"{name} --> HP : {hitPoints} kai armor {armorClass} kai to initiative einai {initiative}");
 		}
 
 	}
