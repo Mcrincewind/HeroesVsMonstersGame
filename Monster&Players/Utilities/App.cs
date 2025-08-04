@@ -17,17 +17,14 @@ namespace Monster_Players.Utilities
 	    // klasi run i opoia einai void kai tha xekinaei to programma apo edw 
 		public static void Run() {
 
-			AbstractHeroes_Monsters a = CreatePlayer();
-			AbstractHeroes_Monsters b = CreatePlayer();
-
-			AbstractHeroes_Monsters first = TheTurn(a,b);
-			AbstractHeroes_Monsters second = (first == a) ? b : a;
-
-			TheFight(first, second);
-
-
-			a.ShowMore();
-			b.ShowMore();
+			////AbstractHeroes_Monsters a = CreatePlayer();
+			////AbstractHeroes_Monsters b = CreatePlayer();
+			////AbstractHeroes_Monsters first = TheTurn(a,b);
+			////AbstractHeroes_Monsters second = (first == a) ? b : a;
+			////TheFight(first, second);
+			////a.ShowMore();
+			////b.ShowMore();
+			Arena.Hello();
 
 		}
 
@@ -229,7 +226,7 @@ namespace Monster_Players.Utilities
 				Console.WriteLine(message);
 				if (int.TryParse(Console.ReadLine(), out value))
 					return value;
-				Console.WriteLine("mi egiro dwse arithmo");
+				Console.WriteLine("mi egiro!! dwse arithmo");
 			}
 		}
 	}
